@@ -28,8 +28,19 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
 
   return (
     <div>
-      {" "}
-      Wlecome to the WeatherPage {city} {lat} {long}
+      {/* Information Panel */}
+
+      <div>
+        <div className="p-5">
+          <div className="pb-5">
+            <h2 className="text-xl font-bold">Today's Overview</h2>
+            <p className="text-sm text-gray-500">Last Updated at: {" "}
+              {new Date(results.current_weather.time).toLocaleString()}
+              ({results.timezone})
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
