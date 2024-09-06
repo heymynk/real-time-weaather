@@ -22,16 +22,16 @@ interface Daily {
 }
 
 interface DailyUnits {
-  apparent_temperature_max: String;
-  apparent_temperature_min: String;
-  sunrise: String;
-  sunset: String;
-  temperature_2m_max: String;
-  temperature_2m_min: String;
-  time: String;
-  uv_index_clear_sky_max: String;
-  uv_index_max: String;
-  weathercode: String;
+  apparent_temperature_max: string;
+  apparent_temperature_min: string;
+  sunrise: string;
+  sunset: string;
+  temperature_2m_max: string;
+  temperature_2m_min: string;
+  time: string;
+  uv_index_clear_sky_max: string;
+  uv_index_max: string;
+  weathercode: string;
 }
 
 interface Hourly {
@@ -51,19 +51,19 @@ interface Hourly {
 }
 
 interface HourlyUnits {
-  apparent_temperature: String;
-  precipitation: String;
-  precipitation_probability: String;
-  rain: String;
-  relativehumidity_2m: String;
-  showers: String;
-  snow_depth: String;
-  snowfall: String;
-  temperature_2m: String;
-  time: String;
-  uv_index: String;
-  uv_index_clear_sky: String;
-  windgusts_10m: String;
+  apparent_temperature: string;
+  precipitation: string;
+  precipitation_probability: string;
+  rain: string;
+  relativehumidity_2m: string;
+  showers: string;
+  snow_depth: string;
+  snowfall: string;
+  temperature_2m: string;
+  time: string;
+  uv_index: string;
+  uv_index_clear_sky: string;
+  windgusts_10m: string;
 }
 
 interface Root {
@@ -77,7 +77,7 @@ interface Root {
   hourly_units: HourlyUnits;
   latitude: number;
   longitude: number;
-  timezone: String;
-  timezone_abbreviation: String;
+  timezone: string;
+  timezone_abbreviation: string;
   utc_offset_seconds: number;
 }

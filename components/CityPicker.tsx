@@ -1,8 +1,8 @@
-"use-client";
+"use client";
 
 import Select from "react-select";
 import { Country, City } from "country-state-city";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
 
@@ -12,7 +12,6 @@ type option = {
     longitude: string;
     isoCode: string;
   };
-
   label: string;
 } | null;
 
@@ -33,15 +32,18 @@ const options = Country.getAllCountries().map((country) => ({
     longitude: country.longitude,
     isoCode: country.isoCode,
   },
-
   label: country.name,
 }));
 
-//This will need pkg npm country-state-city & npm React-select
 function CityPicker() {
+  const [isClient, setIsClient] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState<option>(null);
   const [selectedCity, setSelectedCity] = useState<Cityoption>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleSelectedCountry = (option: option) => {
     setSelectedCountry(option);
@@ -55,8 +57,12 @@ function CityPicker() {
     );
   };
 
+  if (!isClient) {
+    return null; // or a loading spinner
+  }
+
   return (
-    <div className=" space-y-4">
+    <div className="space-y-4">
       <div className="space-y-2">
         <div className="flex items-center space-x-2 text-white/80">
           <GlobeAltIcon className="h-5 w-5 text-white" />
@@ -74,7 +80,7 @@ function CityPicker() {
         <div className="space-y-2">
           <div className="flex items-center space-x-2 text-white/80">
             <GlobeAltIcon className="h-5 w-5 text-white" />
-            <label htmlFor="country">City</label>
+            <label htmlFor="city">City</label>
           </div>
           <Select
             className="text-black"

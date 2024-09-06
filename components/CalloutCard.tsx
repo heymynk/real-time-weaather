@@ -11,7 +11,7 @@ import {
   function CalloutCard({ message, warning }: Props) {
     return (
       <div
-        className={`mt-4 p-4 rounded-lg shadow-md transition-all duration-300 ${
+        className={`mt-4 mb-5 p-4 rounded-lg shadow-md transition-all duration-300 ${
           warning
             ? "bg-rose-100 text-rose-900 border-l-4 border-rose-900"
             : "bg-teal-100 text-teal-900 border-l-4 border-teal-900"

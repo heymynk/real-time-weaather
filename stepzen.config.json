@@ -1,0 +1,4 @@
+{
+  "endpoint": "api/misty-garfish",
+  "root": "stepzen/curl"
+}
