@@ -1,6 +1,8 @@
 import { getClient } from "@/apollo-client";
 import CalloutCard from "@/components/CalloutCard";
+import HumidityChart from "@/components/HumidityChart";
 import InformationPanel from "@/components/InformationPanel";
+import RainChart from "@/components/RainChart";
 import StatCard from "@/components/StatCard";
 import TempChart from "@/components/TempChart";
 import fetchWeatherQuery from "@/graphql/queries/fetchWeatherQueries";
@@ -33,7 +35,7 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen md:flex-row bg-[#fafafa]">
-            <InformationPanel city={city} long={long} lat={lat} results={results} />
+      <InformationPanel city={city} long={long} lat={lat} results={results} />
 
       <div className="flex-1 p-5 lg:p-10">
         <div className="pb-5">
@@ -98,11 +100,12 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
         <hr className="mb-5" />
 
         <div className="space-y-3">
-              {/* Temprature Chart */}
-              <TempChart results={results}/>
-              {/* Rain Chart */}
-              {/* Humidity Chart */}
-
+          {/* Temprature Chart */}
+          <TempChart results={results} />
+          {/* Rain Chart */}
+          <RainChart results={results} />
+          {/* Humidity Chart */}
+          <HumidityChart results={results} />
         </div>
       </div>
     </div>

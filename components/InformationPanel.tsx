@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import CityPicker from "./CityPicker";
@@ -25,6 +26,29 @@ type Props = {
 };
 
 function InformationPanel({ city, lat, long, results }: Props) {
+  const [currentDate, setCurrentDate] = useState<string>("");
+  const [currentTime, setCurrentTime] = useState<string>("");
+
+  useEffect(() => {
+    // Set date and time on the client-side only
+    const date = new Date();
+    setCurrentDate(
+      date.toLocaleDateString("en-gb", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    );
+    setCurrentTime(
+      date.toLocaleTimeString("en-gb", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: false,
+      })
+    );
+  }, []);
+
   return (
     <div className="bg-gradient-to-br from-[#1C3B72] via-[#4682B4] to-[#87CEEB] text-white p-10">
       <div className="pb-5">
@@ -39,26 +63,13 @@ function InformationPanel({ city, lat, long, results }: Props) {
       <hr className="my-10" />
       <div className="mt-5 flex items-center justify-between space-x-10 mb-5">
         <div>
-          <p className="text-xl">
-            {new Date().toLocaleDateString("en-gb", {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
+          <p className="text-xl">{currentDate}</p>
           <p className="font-light">
             Timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}
           </p>
         </div>
 
-        <p className="text-xl font-bold uppercase">
-          {new Date().toLocaleTimeString("en-gb", {
-            hour: "numeric",
-            minute: "numeric",
-            hour12: true,
-          })}
-        </p>
+        <p className="text-xl font-bold uppercase">{currentTime}</p>
       </div>
 
       <hr className="mt-10 mb-5" />
