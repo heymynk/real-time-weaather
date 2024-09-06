@@ -44,7 +44,7 @@ function InformationPanel({ city, lat, long, results }: Props) {
       date.toLocaleTimeString("en-gb", {
         hour: "numeric",
         minute: "numeric",
-        hour12: false,
+        hour12: true,
       })
     );
   }, []);
