@@ -53,7 +53,7 @@ function InformationPanel({ city, lat, long, results }: Props) {
     <div className="bg-gradient-to-br from-[#1C3B72] via-[#4682B4] to-[#87CEEB] text-white p-10">
       <div className="pb-5">
         <h1 className="text-6xl font-bold">{decodeURI(city)}</h1>
-        <p className="text-sm text-white">
+        <p className="text-sm text-white mt-4 text-center">
           Long/Lat: {long}, {lat}
         </p>
       </div>
